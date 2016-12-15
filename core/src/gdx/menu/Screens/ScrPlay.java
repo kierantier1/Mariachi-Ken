@@ -34,13 +34,9 @@ public class ScrPlay implements Screen, InputProcessor {
         tbsMenu = new TbsMenu();
         batch = new SpriteBatch();
         screenName = new BitmapFont();
-        tbMenu = new TbMenu("BACK", tbsMenu);
-        tbGameover = new TbMenu("GAMEOVER", tbsMenu);
-        tbMenu.setY(0);
-        tbMenu.setX(0);
+        tbGameover = new TbMenu("OPTIONS", tbsMenu);
         tbGameover.setY(0);
         tbGameover.setX(440);
-        stage.addActor(tbMenu);
         stage.addActor(tbGameover);
         Gdx.input.setInputProcessor(stage);
         btnMenuListener();
@@ -66,15 +62,9 @@ public class ScrPlay implements Screen, InputProcessor {
             }
         });
     }
-
     public void btnMenuListener() {
-        tbMenu.addListener(new ChangeListener() {
-            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                gdxMenu.currentState = gdxMenu.gameState.MENU;
-                gdxMenu.updateState();
-            }
-        });
     }
+   
 
     @Override
     public void resize(int width, int height) {
