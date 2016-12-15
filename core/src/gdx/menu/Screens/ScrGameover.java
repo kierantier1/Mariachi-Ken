@@ -53,7 +53,7 @@ public class ScrGameover implements Screen, InputProcessor {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         
-        screenName.draw(batch, "GAME OVER", 230, 275);
+        screenName.draw(batch, "Options", 230, 275);
         batch.end();
         stage.act();
         stage.draw();
