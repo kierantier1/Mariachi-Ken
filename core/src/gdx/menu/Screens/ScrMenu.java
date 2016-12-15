@@ -24,7 +24,7 @@ import java.awt.Font;
 public class ScrMenu implements Screen, InputProcessor {
     GdxMenu gdxMenu;
     TbsMenu tbsMenu;
-    TbMenu tbPlay, tbGameover;
+    TbMenu tbPlay, tbOptions;
     Stage stage;
     SpriteBatch batch;
     BitmapFont screenName;
@@ -43,13 +43,13 @@ public class ScrMenu implements Screen, InputProcessor {
         batch = new SpriteBatch();
         screenName = new BitmapFont();
         tbPlay = new TbMenu("PLAY", tbsMenu);
-        tbGameover = new TbMenu("BACK", tbsMenu);
-        tbGameover.setY(0);
-        tbGameover.setX(0);
+        tbOptions = new TbMenu("OPTIONS", tbsMenu);
+        tbOptions.setY(0);
+        tbOptions.setX(0);
         tbPlay.setY(0);
         tbPlay.setX(440);
         stage.addActor(tbPlay);
-        stage.addActor(tbGameover);
+        stage.addActor(tbOptions);
         Gdx.input.setInputProcessor(stage);
         btnPlayListener();
         btnGameoverListener();
@@ -75,7 +75,7 @@ public class ScrMenu implements Screen, InputProcessor {
     }
 
     public void btnGameoverListener() {
-        tbGameover.addListener(new ChangeListener() {
+        tbOptions.addListener(new ChangeListener() {
             public void changed(ChangeListener.ChangeEvent event, Actor actor) {
                 gdxMenu.currentState = gdxMenu.gameState.OVER;
                 gdxMenu.updateState();

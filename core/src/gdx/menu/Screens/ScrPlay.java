@@ -47,7 +47,7 @@ public class ScrPlay implements Screen, InputProcessor {
         Gdx.gl.glClearColor(.135f, .206f, .235f, 1); //blue background.
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        screenName.draw(batch, "PLAY", 230, 275);
+        screenName.draw(batch, "Kingdom Map", 230, 275);
         batch.end();
         stage.act();
         stage.draw();

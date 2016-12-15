@@ -16,7 +16,7 @@ import gdx.menu.GdxMenu;
 import gdx.menu.TbMenu;
 import gdx.menu.TbsMenu;
 
-public class ScrGameover implements Screen, InputProcessor {
+public class ScrOptions implements Screen, InputProcessor {
     GdxMenu gdxMenu;
     TbsMenu tbsMenu;
     TbMenu tbPlay, tbMenu;
@@ -25,7 +25,7 @@ public class ScrGameover implements Screen, InputProcessor {
     BitmapFont screenName;
     
 
-    public ScrGameover(GdxMenu _gdxMenu) {  //Referencing the main class.
+    public ScrOptions(GdxMenu _gdxMenu) {  //Referencing the main class.
         gdxMenu = _gdxMenu;
     }
 
@@ -35,7 +35,7 @@ public class ScrGameover implements Screen, InputProcessor {
         tbsMenu = new TbsMenu();
         batch = new SpriteBatch();
         screenName = new BitmapFont();
-        tbPlay = new TbMenu("BACK", tbsMenu);
+        tbPlay = new TbMenu("PLAY", tbsMenu);
         tbMenu = new TbMenu("MENU", tbsMenu);
         tbPlay.setY(0);
         tbPlay.setX(0);
