@@ -77,7 +77,7 @@ public class ScrMenu implements Screen, InputProcessor {
     public void btnGameoverListener() {
         tbOptions.addListener(new ChangeListener() {
             public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                gdxMenu.currentState = gdxMenu.gameState.OVER;
+                gdxMenu.currentState = gdxMenu.gameState.OPTI;
                 gdxMenu.updateState();
             }
         });

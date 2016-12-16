@@ -19,7 +19,7 @@ import gdx.menu.TbsMenu;
 public class ScrPlay implements Screen, InputProcessor {
     GdxMenu gdxMenu;
     TbsMenu tbsMenu;
-    TbMenu tbMenu, tbGameover;
+    TbMenu tbMenu, tbOptions, tbGameover;
     Stage stage;
     SpriteBatch batch;
     BitmapFont screenName;
@@ -34,13 +34,16 @@ public class ScrPlay implements Screen, InputProcessor {
         tbsMenu = new TbsMenu();
         batch = new SpriteBatch();
         screenName = new BitmapFont();
-        tbGameover = new TbMenu("OPTIONS", tbsMenu);
-        tbGameover.setY(0);
+        tbGameover = new TbMenu("LOSE", tbsMenu);
+        tbGameover.setY(100);
         tbGameover.setX(440);
-        stage.addActor(tbGameover);
+        tbOptions = new TbMenu("OPTIONS", tbsMenu);
+        tbOptions.setY(0);
+        tbOptions.setX(440);
+        stage.addActor(tbOptions);
         Gdx.input.setInputProcessor(stage);
         btnMenuListener();
-        btnGameoverListener();
+        btnOptionsListener();
     }
 
     public void render(float delta) {
@@ -54,9 +57,17 @@ public class ScrPlay implements Screen, InputProcessor {
         
     }
 
-    public void btnGameoverListener() {
-        tbGameover.addListener(new ChangeListener() {
+    public void btnOptionsListener() {
+        tbOptions.addListener(new ChangeListener() {
             public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                gdxMenu.currentState = gdxMenu.gameState.OPTI;
+                gdxMenu.updateState();
+            }
+        });
+    }
+    public void btnGameoverListener(){
+        tbGameover.addListener(new ChangeListener(){
+            public void changed(ChangeListener.ChangeEvent event, Actor actor){
                 gdxMenu.currentState = gdxMenu.gameState.OVER;
                 gdxMenu.updateState();
             }
