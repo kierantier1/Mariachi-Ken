@@ -4,7 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -20,28 +22,34 @@ public class ScrGameover implements Screen, InputProcessor {
     Stage stage;
     SpriteBatch batch;
     BitmapFont screenName;
-    
+    Texture gameOver;
+    Sprite Over;
 
     public ScrGameover(GdxMenu _gdxMenu) {  //Referencing the main class.
         gdxMenu = _gdxMenu;
     }
 
     public void show() {
+        //gameOver = new Texture("")
         stage = new Stage();
         tbsMenu = new TbsMenu();
         batch = new SpriteBatch();
         screenName = new BitmapFont();
-        tbOptions = new TbMenu("GAMEOVER", tbsMenu);
-        tbOptions.setY(440);
+        tbMenu = new TbMenu("Menu", tbsMenu);
+        tbMenu.setY(0);
+        tbMenu.setX(0);
+        tbOptions = new TbMenu("Options", tbsMenu);
+        tbOptions.setY(0);
         tbOptions.setX(440);
         stage.addActor(tbOptions);
+        stage.addActor(tbMenu);
         Gdx.input.setInputProcessor(stage);
         btnMenuListener();
         btnOptionsListener();
     }
 
     public void render(float delta) {
-        Gdx.gl.glClearColor(.135f, .206f, .235f, 1); //blue background.
+        
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         screenName.draw(batch, "Game Over, my dude", 230, 275);
@@ -63,6 +71,7 @@ public class ScrGameover implements Screen, InputProcessor {
     tbMenu.addListener(new ChangeListener(){
         public void changed(ChangeListener.ChangeEvent event, Actor actor){
             gdxMenu.currentState = gdxMenu.gameState.MENU;
+            gdxMenu.updateState();
         }
     });
     }
