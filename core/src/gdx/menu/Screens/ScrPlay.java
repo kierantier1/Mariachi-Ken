@@ -4,7 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -23,6 +25,8 @@ public class ScrPlay implements Screen, InputProcessor {
     Stage stage;
     SpriteBatch batch;
     BitmapFont screenName;
+    Texture grass;
+    Sprite grassmap;
     
 
     public ScrPlay(GdxMenu _gdxMenu) {  //Referencing the main class.
@@ -30,6 +34,8 @@ public class ScrPlay implements Screen, InputProcessor {
     }
 
     public void show() {
+        grass = new Texture("Grass Tile Demo.png");
+        grassmap = new Sprite(grass);
         stage = new Stage();
         tbsMenu = new TbsMenu();
         batch = new SpriteBatch();
@@ -51,7 +57,7 @@ public class ScrPlay implements Screen, InputProcessor {
         Gdx.gl.glClearColor(.135f, .206f, .235f, 1); //blue background.
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        screenName.draw(batch, "To be replaced by map in Release 1.6", 230, 275);
+        batch.draw(grassmap, 0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.end();
         stage.act();
         stage.draw();
