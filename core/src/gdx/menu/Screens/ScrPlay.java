@@ -27,7 +27,8 @@ public class ScrPlay implements Screen, InputProcessor {
     BitmapFont screenName;
     Texture grass;
     Sprite grassmap;
-    
+    Texture tree;
+    Sprite treeobject;
 
     public ScrPlay(GdxMenu _gdxMenu) {  //Referencing the main class.
         gdxMenu = _gdxMenu;
@@ -36,6 +37,8 @@ public class ScrPlay implements Screen, InputProcessor {
     public void show() {
         grass = new Texture("Grass Tile Demo.png");
         grassmap = new Sprite(grass);
+        tree = new Texture("tree.png");
+        treeobject = new Sprite(tree);
         stage = new Stage();
         tbsMenu = new TbsMenu();
         batch = new SpriteBatch();
@@ -58,6 +61,13 @@ public class ScrPlay implements Screen, InputProcessor {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         batch.draw(grassmap, 0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(treeobject, 10,-10,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(treeobject, 90,-180,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(treeobject, -90,180,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(treeobject, -180,180,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(treeobject, -180,90,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(treeobject, -180,-90,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(treeobject, -90,-90,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.end();
         stage.act();
         stage.draw();
