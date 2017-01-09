@@ -31,6 +31,10 @@ public class ScrPlay implements Screen, InputProcessor {
     Sprite treeobject;
     Texture rock;
     Sprite rockobject;
+        public int nXpos1 = (int)(Math.random() * 240 + 1);
+        public int nXpos2 = (int)(Math.random() * 240 + 1);
+        public int nYpos1 = (int)(Math.random() * 240 + 1);
+        public int nYpos2 = (int)(Math.random() * 240 + 1);
 
     public ScrPlay(GdxMenu _gdxMenu) {  //Referencing the main class.
         gdxMenu = _gdxMenu;
@@ -58,6 +62,7 @@ public class ScrPlay implements Screen, InputProcessor {
         Gdx.input.setInputProcessor(stage);
         btnGameoverListener();
         btnOptionsListener();
+        
     }
 
     public void render(float delta) {
@@ -65,8 +70,8 @@ public class ScrPlay implements Screen, InputProcessor {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         batch.draw(grassmap, 0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(treeobject, -200,180,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(rockobject, 200,180,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(treeobject, nYpos1,nXpos1,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(rockobject, nYpos2,nXpos2,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.end();
         stage.act();
         stage.draw();
