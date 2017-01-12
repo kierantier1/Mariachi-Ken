@@ -31,22 +31,6 @@ public class ScrPlay implements Screen, InputProcessor {
     Sprite treeobject;
     Texture rock;
     Sprite rockobject;
-    Texture squid;
-    Sprite squidenimy;
-    Texture hand;
-    Sprite handenimy;
-    Texture spider;
-    Sprite spiderenimy;
-    Texture pig;
-    Sprite pigenimy;
-    Texture pig2;
-    Sprite pigenimy2;
-    Texture slime;
-    Sprite slimeenimy;
-    Texture snake;
-    Sprite snakeenimy;
-    Texture slimeball;
-    Sprite slimeballobject;
         public int nXpos1 = (int)(Math.random() * 240 + 1);
         public int nXpos2 = (int)(Math.random() * 240 + 1);
         public int nYpos1 = (int)(Math.random() * 240 + 1);
@@ -62,22 +46,7 @@ public class ScrPlay implements Screen, InputProcessor {
     }
 
     public void show() {
-        slimeball = new Texture("slimeball1.png");
-        slimeballobject = new Sprite(slimeball);
-        pig = new Texture("Pig.png");
-        pigenimy = new Sprite(pig);
-        pig2 = new Texture("Pig2.png");
-        pigenimy2 = new Sprite(pig2);
-        hand = new Texture("hand.png");
-        handenimy = new Sprite(hand);
-        snake = new Texture("snake.png");
-        snakeenimy = new Sprite(snake);
-        slime = new Texture("slime.png");
-        slimeenimy = new Sprite(slime);
-        spider = new Texture("spider.png");
-        spiderenimy = new Sprite(spider);
-        squid = new Texture("squid.png");
-        squidenimy = new Sprite(squid);
+        
         grass = new Texture("Grass Tile Demo.png");
         grassmap = new Sprite(grass);
         tree = new Texture("tree.png");
@@ -109,63 +78,6 @@ public class ScrPlay implements Screen, InputProcessor {
         batch.draw(grassmap, 0,0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.draw(treeobject, nXpos1,nYpos1,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.draw(rockobject, nXpos2+100,nYpos2-150,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(slimeballobject, nXpos4,nYpos4,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        
-       // batch.draw(handenimy, nXpos3+100,nYpos3+150,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-       // batch.draw(pigenimy, nXpos3,nYpos3+100,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-       // batch.draw(slimeenimy, nXpos3+100,nYpos3+40,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-       // batch.draw(snakeenimy, nXpos3,nYpos3,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-       // batch.draw(spiderenimy, nXpos3+100,nYpos3-50,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-       // batch.draw(squidenimy, nXpos3,nYpos3-100,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-       // batch.draw(rockobject, nXpos2+100,nYpos2-150,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        
-        if(nDirect==-1){
-        batch.draw(pigenimy, nXpos3+100,nYpos3+150,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy, nXpos3,nYpos3+100,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy, nXpos3+100,nYpos3+50,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(slimeenimy, nXpos3,nYpos3,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy, nXpos3+100,nYpos3-50,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy, nXpos3,nYpos3-100,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy, nXpos3+100,nYpos3-150,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy, nXpos3-200,nYpos3,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy, nXpos3-100,nYpos3-50,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy, nXpos3-100,nYpos3+50,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-       
-        batch.end();
-        stage.act();
-        stage.draw();
-    }
-        else if(nDirect==1){
-        batch.draw(pigenimy2, nXpos3+100,nYpos3+150,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy2, nXpos3,nYpos3+100,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy2, nXpos3+100,nYpos3+50,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(slimeenimy, nXpos3,nYpos3,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy2, nXpos3+100,nYpos3-50,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy2, nXpos3,nYpos3-100,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy2, nXpos3+100,nYpos3-150,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy2, nXpos3-200,nYpos3,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy2, nXpos3-100,nYpos3-50,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.draw(pigenimy2, nXpos3-100,nYpos3+50,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        
-        batch.end();
-        stage.act();
-        stage.draw();
-    }
-        if(nXpos3 >= 0){
-            nXpos4-=5;
-        }
-        else if(nXpos3 <= 0){
-            nXpos4+=5;
-        }
-        
-         nXpos3+=nDirect;
-         if(nXpos4 <= -305&&nXpos4 >= -310||nXpos4 >= 305&&nXpos4 <= 310){
-             nXpos4 = nXpos3;
-         }
-        if(nXpos3 == -240||nXpos3==240){
-            nDirect = nDirect*(-1);
-        }
-        
     }
 
     public void btnOptionsListener() {
